@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import { ApolloServer } from 'apollo-server-express'
 import { ApolloServerPluginLandingPageGraphQLPlayground, ApolloServerPluginLandingPageProductionDefault } from 'apollo-server-core'
 import { resolvers } from './resolvers'
+import { connect } from './utils/db'
 
 dotenv.config()
 
@@ -33,6 +34,8 @@ async function bootstrap() {
     app.listen(4000, () => {
         console.log('server runs')
     })
+
+    connect()
 }
 
 bootstrap()
